@@ -1,0 +1,8 @@
+{
+  "name": "the_guildmaster_backend",
+  "version": "1.0.0",
+  "description": "backend server for the application \"The Guildmaster\"",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
