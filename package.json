@@ -3,9 +3,16 @@
   "version": "1.0.0",
   "description": "backend server for the application \"The Guildmaster\"",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "start:forever": "nodemon server.js"
   },
   "dependencies": {
-    "express": "^4.15.3"
+    "config": "^1.26.1",
+    "express": "^4.15.3",
+    "express-winston": "^2.4.0",
+    "mongoose": "^4.10.4",
+    "nodemon": "^1.11.0",
+    "winston": "^2.3.1"
   }
 }
