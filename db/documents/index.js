@@ -1,6 +1,6 @@
 function createDocuments (mongoose) {
   const documents = {
-    Player: require('./player')(mongoose)
+    Player: require('./Player')(mongoose)
   }
   console.log('------------------------')
   console.log('🏬  DOCUMENTS:')
