@@ -1,28 +1,37 @@
 # The_Guildmaster_backend
 backend server for The Guildmaster (check https://github.com/Athoir/The_Guildmaster)
 
+## How to install the server:
 
-routes:
+- Have node.js and mongoDB installed on your computer
+- clone the git repository
+- type on your CLI `npm install` when you are in the folder of the repository
+- run mongoDB and type `npm run start` to run the server
+- the default port for the server is `localhost:3000` to change it, go in `/config/default.json` and change the `port` value
+
+## API:
+
+#### GET
 
 `/` to check if the server is ready
 
-##Player
+### Player
 
-###POST
+#### POST
 
 `/player` to create a player, returns the complete object of the player created, the route wait a body looking like:
-{ "name": "Jojo", "googleId": "f4vs548" } with the Header Content-type: application/json
+`{ "name": "Jojo", "googleId": "f4vs548" }` with the Header `Content-type: application/json`
 
-###GET
+#### GET
 
 `/player/:playerId` to get only the mains informations of the player
 `{ name: String, googleId: String, reputation: Number, money: Number }`
 
 `/player/:playerId/complete` to get the complete object of the player
 
-## Quests
+### Quests
 
-###GET
+#### GET
 
 `/quest/:playerId` to get both available and current quests
 
