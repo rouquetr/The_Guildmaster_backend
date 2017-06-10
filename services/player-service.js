@@ -5,12 +5,12 @@ function createPlayer (name, googleId) {
   return new documents.Player(newPlayer).save()
 }
 
-function getPlayerComplete (id) {
-  return documents.Player.findById(id)
+function getPlayerComplete (playerId) {
+  return documents.Player.findById(playerId)
 }
 
-function getPlayerInfo (id) {
-  return documents.Player.findById(id)
+function getPlayerInfo (playerId) {
+  return documents.Player.findById(playerId)
     .then(player => player.player)
 }
 
