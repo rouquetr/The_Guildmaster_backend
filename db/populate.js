@@ -81,6 +81,9 @@ function populatePlayer () {
       } ]
     }
   }
+  playerSample.quests.currentQuests.map((element, index) => {
+    playerSample.quests.currentQuests[ index ].characters = [ playerSample.characters[ index ].id ]
+  })
   return new documents.Player(playerSample).save()
 }
 

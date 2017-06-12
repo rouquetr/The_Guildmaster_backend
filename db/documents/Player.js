@@ -3,8 +3,20 @@ function createPlayerSchema (mongoose, name = 'Player') {
     player: { name: String, googleId: String, reputation: Number, money: Number },
     characters: [ { id: String, name: String, class: String, weaponLevel: Number, armorLevel: Number } ],
     quests: {
-      availableQuests: { generatedAt: Date, quests: [ { id: String, questType: String, level: Number, length: Number, lethality: Number, reward: Number } ] },
-      currentQuests: [ { id: String, endAt: Date, questType: String, level: Number, length: Number, lethality: Number, reward: Number } ]
+      availableQuests: {
+        generatedAt: Date,
+        quests: [ { id: String, questType: String, level: Number, length: Number, lethality: Number, reward: Number } ]
+      },
+      currentQuests: [ {
+        id: String,
+        endAt: Date,
+        questType: String,
+        level: Number,
+        length: Number,
+        lethality: Number,
+        reward: Number,
+        characters: [ String ]
+      } ]
     }
   }, { minimize: false, strict: true })
   return mongoose.model('Player', PlayerSchema)
