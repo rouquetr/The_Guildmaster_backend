@@ -10,5 +10,5 @@ module.exports = function createRoutes (app) {
 
   app.use('/',            indexRoute)
   app.use('/player',      playerRoute)
-  app.use('/quest',       questRoute)
+  app.use('/player',      questRoute)
 }

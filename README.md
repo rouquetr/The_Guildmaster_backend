@@ -33,10 +33,10 @@ backend server for The Guildmaster (check https://github.com/Athoir/The_Guildmas
 
 #### GET
 
-`/quest/:playerId` to get both available and current quests
+`/player/:playerId/quest` to get both available and current quests
 
-`/quest/:playerId/available` to get the available quests
+`/player/:playerId/quest/available` to get the available quests
 `{ generatedAt: Date, quests: [ { questType: String, level: Number, length: Number, lethality: Number, reward: Number } ] }`
 
-`/quest/:playerId/current` to get the current quests
+`/player/:playerId/quest/current` to get the current quests
 `[ { endAt: Date, questType: String, level: Number, length: Number, lethality: Number, reward: Number } ]`
