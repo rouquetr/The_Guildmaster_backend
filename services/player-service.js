@@ -1,5 +1,13 @@
 const { documents } = require('../db')
 
+function logPlayerIn (googleId) {
+  console.log({ 'player.googleId': googleId })
+  return documents.Player.findOne({ 'player.googleId': googleId })
+    .then(player => {
+      return player ? { _id: player._id } : { _id: null }
+    })
+}
+
 function createPlayer (name, googleId) {
   const newPlayer = { player: { name, googleId, reputation: 0, money: 0 } }
   return new documents.Player(newPlayer).save()
@@ -15,6 +23,7 @@ function getPlayerInfo (playerId) {
 }
 
 module.exports = {
+  logPlayerIn,
   createPlayer,
   getPlayerComplete,
   getPlayerInfo

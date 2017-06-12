@@ -24,6 +24,10 @@ backend server for The Guildmaster (check https://github.com/Athoir/The_Guildmas
 
 #### GET
 
+`/player/login/:googleId` to check if the player has an account assigned to his googleId
+returns a status code 200 with the _id of the player if one has been found
+if no player has been found, returns a code 404 with an _id: null
+
 `/player/:playerId` to get only the mains informations of the player
 `{ name: String, googleId: String, reputation: Number, money: Number }`
 
