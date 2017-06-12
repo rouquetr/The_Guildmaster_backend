@@ -9,6 +9,11 @@ backend server for The Guildmaster (check https://github.com/Athoir/The_Guildmas
 - run mongoDB and type `npm run start` to run the server
 - the default port for the server is `localhost:3000` to change it, go in `/config/default.json` and change the `port` value
 
+## Config
+
+If you want to change the reset timer for quests, go into `/config/default.json` and change the fields `value` and/or `unit`
+in the object `quest.reset`
+
 ## API:
 
 #### GET

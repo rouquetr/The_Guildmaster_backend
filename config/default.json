@@ -2,5 +2,11 @@
   "port": 3000,
   "db": {
     "uri": "mongodb://localhost"
+  },
+  "quest": {
+    "reset": {
+      "value": 30,
+      "unit": "minutes"
+    }
   }
 }
