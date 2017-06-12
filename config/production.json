@@ -1,0 +1,6 @@
+{
+  "port": 3000,
+  "db": {
+    "uri": "mongodb://admin:admin@ds029381.mlab.com:29381/the_guildmaster"
+  }
+}
