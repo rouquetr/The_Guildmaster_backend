@@ -1,8 +1,9 @@
-const bodyParser  =      require('body-parser')
+const bodyParser     =      require('body-parser')
 
-const indexRoute  =      require('./index-route')
-const playerRoute =      require('./player-route')
-const questRoute  =      require('./quest-route')
+const indexRoute     =      require('./index-route')
+const playerRoute    =      require('./player-route')
+const questRoute     =      require('./quest-route')
+const characterRoute =      require('./character-route')
 
 module.exports = function createRoutes (app) {
   app.use(bodyParser.json())
@@ -11,4 +12,5 @@ module.exports = function createRoutes (app) {
   app.use('/',            indexRoute)
   app.use('/player',      playerRoute)
   app.use('/player',      questRoute)
+  app.use('/player',      characterRoute)
 }
