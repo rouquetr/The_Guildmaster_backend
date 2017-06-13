@@ -43,7 +43,7 @@ function generateQuests () {
 
 function generateQuestsIfExpired (player) {
   const now = moment.now().valueOf()
-  if (moment(player.quests.availableQuests.generatedAt).add(questConfig.reset.value, questConfig.reset.unit).valueOf() <= now) {
+  if ((moment(player.quests.availableQuests.generatedAt).add(questConfig.reset.value, questConfig.reset.unit).valueOf() <= now) || !player.quests.availableQuests.generatedAt) {
     player.quests.availableQuests.generatedAt = now
     player.quests.availableQuests.quests = generateQuests()
   }

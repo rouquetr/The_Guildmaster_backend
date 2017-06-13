@@ -45,6 +45,11 @@ if no player has been found, returns a code 404 with an _id: null
 `/player/:playerId/character` to recruit a new character, just send `{class: "classWanter"}` in the body
 returns the list of all characters
 
+#### PUT
+
+`/player/:playerId/character/:characterId` to update a new character, send `{ cost: 100, weaponLevel: 1, armorLevel: 5 }`
+returns the caracters
+
 #### GET
 
 `/player/:playerId/character` returns the list of the player's characters
