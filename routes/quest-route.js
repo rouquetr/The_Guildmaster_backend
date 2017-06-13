@@ -4,7 +4,8 @@ const {
   getAllQuests,
   getAvailableQuests,
   getCurrentQuests,
-  startQuest
+  startQuest,
+  validateQuest
 } = require('../services/quest-service')
 
 /* GET home page. */
@@ -18,6 +19,11 @@ router.get('/:playerId/quest/current', (req, res, next) => getCurrentQuests(req.
 router.post('/:playerId/quest/:questId/start', (req, res, next) => startQuest(req.params.playerId, req.params.questId, req.body.characters)
   .then(result => res.json(result))
   .catch(e => res.status(404).json({ message: 'No quest available for this id' }))
+)
+
+router.post('/:playerId/quest/:questId/validate', (req, res, next) => validateQuest(req.params.playerId, req.params.questId)
+  .then(result => res.json(result))
+  .catch(e => res.status(404).json({ message: 'No quest finished with this id' }))
 )
 
 module.exports = router

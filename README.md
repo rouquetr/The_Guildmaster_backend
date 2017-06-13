@@ -25,7 +25,7 @@ in the object `quest.reset`
 #### POST
 
 `/player` to create a player, returns the complete object of the player created, the route wait a body looking like:
-`{ "name": "Jojo", "googleId": "f4vs548" }` with the Header `Content-type: application/json`
+`{ "name": "Jojo", "googleId": "f4vs548", "email": "jojo@bizarre.co" }` with the Header `Content-type: application/json`
 
 #### GET
 
@@ -44,6 +44,9 @@ if no player has been found, returns a code 404 with an _id: null
 
 `/player/:playerId/quest/:questId/start` to start a quest, return the current quests
 the body expected is `{ characters: [characterId, charaterId] }`
+
+`/player/:playerId/quest/:questId/validate` to validate a finished quest and claim the reward, return a message
+no body expected
 
 #### GET
 

@@ -27,14 +27,15 @@ function getCurrentQuests (playerId) {
 function generateQuests () {
   const quests = []
   for (let i = 0; i < 5; i++) {
-    quests.push({
+    const quest = {
       id: uuidV4(),
       questType: faker.random.arrayElement([ 'E', 'R', 'C' ]),
-      level: faker.random.number(5),
-      length: faker.random.number(600),
-      lethality: faker.random.number(5),
-      reward: faker.random.number(1000)
-    })
+      level: faker.random.number(4) + 1,
+      length: faker.random.number(540) + 60,
+      reward: faker.random.number(900) + 100
+    }
+    quest.lethality = quest.level * 20
+    quests.push(quest)
   }
 
   return quests
@@ -55,7 +56,7 @@ function startQuest (playerId, questId, characters) {
       const matchingQuest = find(player.quests.availableQuests.quests, { id: questId })
       const availableQuestsUpdated = reject(player.quests.availableQuests.quests, { id: questId })
 
-      if(!matchingQuest) {
+      if (!matchingQuest) {
         throw new Error('no matching Quest')
       }
 
@@ -77,9 +78,29 @@ function startQuest (playerId, questId, characters) {
     .then(player => player.quests.currentQuests)
 }
 
+function validateQuest (playerId, questId) {
+  return documents.Player.findById(playerId)
+    .then(player => {
+
+      const matchingQuest = find(player.quests.currentQuests, { id: questId })
+
+      if (matchingQuest && moment(matchingQuest.endAt).valueOf() <= moment.now().valueOf()) {
+        const currentQuestsUpdated = reject(player.quests.currentQuests, { id: questId })
+        player.player.money += matchingQuest.reward
+        player.player.reputation += matchingQuest.reward
+        player.quests.currentQuests = currentQuestsUpdated
+        return player.save()
+          .then(() => ({ message: 'Quest Finished, reward successfully claimed' }))
+      }
+
+      throw new Error('no quest finished with this id')
+    })
+}
+
 module.exports = {
   getAllQuests,
   getAvailableQuests,
   getCurrentQuests,
-  startQuest
+  startQuest,
+  validateQuest
 }

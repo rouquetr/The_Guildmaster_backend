@@ -5,7 +5,7 @@
   },
   "quest": {
     "reset": {
-      "value": 30,
+      "value": 10,
       "unit": "minutes"
     }
   }
