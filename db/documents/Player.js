@@ -1,6 +1,6 @@
 function createPlayerSchema (mongoose, name = 'Player') {
   const PlayerSchema = new mongoose.Schema({
-    player: { name: String, googleId: String, reputation: Number, money: Number },
+    player: { name: String, googleId: String, email: String, reputation: Number, money: Number },
     characters: [ { id: String, name: String, class: String, weaponLevel: Number, armorLevel: Number } ],
     quests: {
       availableQuests: {

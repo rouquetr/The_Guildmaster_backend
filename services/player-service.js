@@ -8,8 +8,8 @@ function logPlayerIn (googleId) {
     })
 }
 
-function createPlayer (name, googleId) {
-  const newPlayer = { player: { name, googleId, reputation: 0, money: 0 } }
+function createPlayer (name, googleId, email) {
+  const newPlayer = { player: { name, googleId, email, reputation: 0, money: 0 } }
   return new documents.Player(newPlayer).save()
 }
 

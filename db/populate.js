@@ -4,6 +4,7 @@ const { documents, connect } = require('./index')
 function populatePlayer () {
   const playerSample = {
     player: {
+      email: faker.internet.email(),
       name: faker.internet.userName(),
       googleId: faker.random.uuid(),
       reputation: faker.random.number(),
