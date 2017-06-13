@@ -40,6 +40,11 @@ if no player has been found, returns a code 404 with an _id: null
 
 ### Quests
 
+#### POST
+
+`/player/:playerId/quest/:questId/start` to start a quest, return the current quests
+the body expected is `{ characters: [characterId, charaterId] }`
+
 #### GET
 
 `/player/:playerId/quest` to get both available and current quests

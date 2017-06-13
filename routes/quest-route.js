@@ -3,7 +3,8 @@ const router = express.Router()
 const {
   getAllQuests,
   getAvailableQuests,
-  getCurrentQuests
+  getCurrentQuests,
+  startQuest
 } = require('../services/quest-service')
 
 /* GET home page. */
@@ -13,5 +14,10 @@ router.get('/:playerId/quest/', (req, res, next) => getAllQuests(req.params.play
 router.get('/:playerId/quest/available', (req, res, next) => getAvailableQuests(req.params.playerId).then(result => res.json(result)))
 
 router.get('/:playerId/quest/current', (req, res, next) => getCurrentQuests(req.params.playerId).then(result => res.json(result)))
+
+router.post('/:playerId/quest/:questId/start', (req, res, next) => startQuest(req.params.playerId, req.params.questId, req.body.characters)
+  .then(result => res.json(result))
+  .catch(e => res.status(404).json({ message: 'No quest available for this id' }))
+)
 
 module.exports = router
