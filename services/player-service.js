@@ -11,7 +11,7 @@ function logPlayerIn (googleId) {
 function createPlayer (name, googleId, email) {
   const newPlayer = { player: { name, googleId, email, reputation: 0, money: 0 } }
   return new documents.Player(newPlayer).save()
-    .then(player => sendEmail(player.player.email, player.player._id).then(() => player))
+    .then(player => sendEmail(player.player.email, player._id, player.player.name).then(() => player))
 }
 
 function getPlayerComplete (playerId) {

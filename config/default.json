@@ -9,6 +9,7 @@
       "unit": "minutes"
     }
   },
+  "url": "localhost:3000",
   "mailer": {
     "pool": true,
     "host": "email-smtp.eu-west-1.amazonaws.com",
