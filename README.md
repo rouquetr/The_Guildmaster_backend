@@ -42,7 +42,7 @@ if no player has been found, returns a code 404 with an _id: null
 
 #### POST
 
-`/player/:playerId/character` to recruit a new character, just send `{class: "classWanter"}` in the body
+`/player/:playerId/character` to recruit a new character, just send `{class: "classWanted"}` in the body
 returns the list of all characters
 
 #### PUT

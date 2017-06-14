@@ -1,0 +1,75 @@
+html
+  head
+    title!= title
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css")
+  body
+    h1 Bonjour #{player.name}
+
+    h2 Voici la liste de vos personnages:
+
+    table.striped
+      thead
+        tr
+          th Nom
+          th Classe
+          th Niveau d'arme
+          th Niveau d'armure
+      for character in characters
+        tbody
+          tr
+            td #{character.name}
+            td #{character.class}
+            td #{character.weaponLevel}
+            td #{character.armorLevel}
+      else
+        Tu n'as pas de personnages, tu devrais en recruter !
+
+    h2 Voici la liste des quêtes qui te sont accessibles:
+
+    p Ces quêtes datent de #{availableQuests.generatedAt}
+
+    if availableQuests.quests
+
+        table.striped
+          thead
+            tr
+              th Type
+              th Niveau
+              th Durée (en secondes)
+              th Récompense
+              th Chances de mourir
+          for availableQuest in availableQuests.quests
+            tr
+                td #{availableQuest.questType}
+                td #{availableQuest.level}
+                td #{availableQuest.length}
+                td #{availableQuest.reward}
+                td #{availableQuest.lethality} %
+    else
+        p Tu n'as aucune quête en cours !
+
+    h2 Voici la liste des quêtes que tu as en cours:
+
+    if currentQuest
+
+        table.striped
+          thead
+            tr
+              th Type
+              th Niveau
+              th Date de fin
+              th Récompense
+              th Chances de mourir
+              th Personnages
+          for currentQuest in currentQuests
+            tr
+                td #{currentQuest.questType}
+                td #{currentQuest.level}
+                td #{currentQuest.endAt}
+                td #{currentQuest.reward}
+                td #{currentQuest.lethality} %
+                td #{currentQuest.characters}
+    else
+        p Tu n'as aucune quête en cours !
+
+      script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js")

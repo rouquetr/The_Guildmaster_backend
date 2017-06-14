@@ -1,7 +1,7 @@
 const { documents } = require('../db')
+const { sendEmail } = require('./mail-service')
 
 function logPlayerIn (googleId) {
-  console.log({ 'player.googleId': googleId })
   return documents.Player.findOne({ 'player.googleId': googleId })
     .then(player => {
       return player ? { _id: player._id } : { _id: null }
@@ -11,6 +11,7 @@ function logPlayerIn (googleId) {
 function createPlayer (name, googleId, email) {
   const newPlayer = { player: { name, googleId, email, reputation: 0, money: 0 } }
   return new documents.Player(newPlayer).save()
+    .then(player => sendEmail(player.player.email, player.player._id).then(() => player))
 }
 
 function getPlayerComplete (playerId) {

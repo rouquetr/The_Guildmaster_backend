@@ -13,6 +13,9 @@ router.post('/', (req, res, next) => createPlayer(req.body.name, req.body.google
 
 router.get('/:id', (req, res, next) => getPlayerInfo(req.params.id).then(result => res.json(result)))
 
-router.get('/:id/complete', (req, res, next) => getPlayerComplete(req.params.id).then(result => res.json(result)))
+router.get('/:id/complete', (req, res, next) => getPlayerComplete(req.params.id).then(player => {
+  if (req.headers[ 'content-type' ] === 'application/json') res.json(player)
+  else res.render('player', { title: player.player.name, player: player.player, availableQuests: player.quests.availableQuests, currentQuests: player.quests.currentQuests, characters: player.characters })
+}))
 
 module.exports = router
