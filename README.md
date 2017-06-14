@@ -36,7 +36,8 @@ if no player has been found, returns a code 404 with an _id: null
 `/player/:playerId` to get only the mains informations of the player
 `{ name: String, googleId: String, reputation: Number, money: Number }`
 
-`/player/:playerId/complete` to get the complete object of the player
+`/player/:playerId/complete` to get the complete object of the player if the request is done without the header 
+`Content-type: application/json`, returns an html page with the player informations
 
 ### Characters
 

@@ -14,20 +14,20 @@ function populatePlayer () {
       id: faker.random.uuid(),
       name: faker.name.firstName(),
       class: faker.random.arrayElement([ 'Berserker', 'Sorcier', 'Clerc', 'Ranger', 'Mercenaire', 'Druide' ]),
-      weaponLevel: faker.random.number(5),
-      armorLevel: faker.random.number(5)
+      weaponLevel: faker.random.number(4) + 1,
+      armorLevel: faker.random.number(4) + 1
     }, {
       id: faker.random.uuid(),
       name: faker.name.firstName(),
       class: faker.random.arrayElement([ 'Berserker', 'Sorcier', 'Clerc', 'Ranger', 'Mercenaire', 'Druide' ]),
-      weaponLevel: faker.random.number(5),
-      armorLevel: faker.random.number(5)
+      weaponLevel: faker.random.number(4) + 1,
+      armorLevel: faker.random.number(4) + 1
     }, {
       id: faker.random.uuid(),
       name: faker.name.firstName(),
       class: faker.random.arrayElement([ 'Berserker', 'Sorcier', 'Clerc', 'Ranger', 'Mercenaire', 'Druide' ]),
-      weaponLevel: faker.random.number(5),
-      armorLevel: faker.random.number(5)
+      weaponLevel: faker.random.number(4) + 1,
+      armorLevel: faker.random.number(4) + 1
     } ],
     quests: {
       availableQuests: {
@@ -35,21 +35,21 @@ function populatePlayer () {
         quests: [ {
           id: faker.random.uuid(),
           questType: faker.random.arrayElement([ 'E', 'R', 'C' ]),
-          level: faker.random.number(5),
+          level: faker.random.number(4) + 1,
           length: faker.random.number(600),
           lethality: faker.random.number(100),
           reward: faker.random.number()
         }, {
           id: faker.random.uuid(),
           questType: faker.random.arrayElement([ 'E', 'R', 'C' ]),
-          level: faker.random.number(5),
+          level: faker.random.number(4) + 1,
           length: faker.random.number(600),
           lethality: faker.random.number(100),
           reward: faker.random.number()
         }, {
           id: faker.random.uuid(),
           questType: faker.random.arrayElement([ 'E', 'R', 'C' ]),
-          level: faker.random.number(5),
+          level: faker.random.number(4) + 1,
           length: faker.random.number(600),
           lethality: faker.random.number(100),
           reward: faker.random.number()
@@ -59,7 +59,7 @@ function populatePlayer () {
         id: faker.random.uuid(),
         endAt: faker.date.future(),
         questType: faker.random.arrayElement([ 'E', 'R', 'C' ]),
-        level: faker.random.number(5),
+        level: faker.random.number(4) + 1,
         length: faker.random.number(600),
         lethality: faker.random.number(100),
         reward: faker.random.number()
@@ -67,15 +67,15 @@ function populatePlayer () {
         id: faker.random.uuid(),
         endAt: faker.date.future(100),
         questType: faker.random.arrayElement([ 'E', 'R', 'C' ]),
-        level: faker.random.number(5),
+        level: faker.random.number(4) + 1,
         length: faker.random.number(600),
-        lethality: faker.random.number(),
+        lethality: faker.random.number(100),
         reward: faker.random.number()
       }, {
         id: faker.random.uuid(),
         endAt: faker.date.future(),
         questType: faker.random.arrayElement([ 'E', 'R', 'C' ]),
-        level: faker.random.number(5),
+        level: faker.random.number(4) + 1,
         length: faker.random.number(600),
         lethality: faker.random.number(100),
         reward: faker.random.number()
