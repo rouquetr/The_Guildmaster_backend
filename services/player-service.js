@@ -23,9 +23,23 @@ function getPlayerInfo (playerId) {
     .then(player => player.player)
 }
 
+function getLeaderboard(){
+  return documents.Player.find({}, null, { sort: { 'player.reputation': 'desc' } })
+    .then(players => players.map((element, index) => {
+      const player = {
+        _id: element._id,
+        name: element.player.name,
+        reputation: element.player.reputation,
+        rank: index +1
+      }
+      return player
+    }))
+}
+
 module.exports = {
   logPlayerIn,
   createPlayer,
   getPlayerComplete,
-  getPlayerInfo
+  getPlayerInfo,
+  getLeaderboard
 }

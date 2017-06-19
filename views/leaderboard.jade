@@ -1,0 +1,24 @@
+html
+  head
+    title!= title
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css")
+  body
+    h1 Classements de The Guildmaster
+
+    if players
+
+        table.striped
+          thead
+            tr
+              th Rang
+              th Nom
+              th Réputation
+          for player in players
+            tr
+                td #{player.rank}
+                td <a href=#{url}/player/#{player._id}/complete >#{player.name} </a>
+                td #{player.reputation}
+    else
+        p Il n'y a aucun joueur de classé actuellement !
+
+      script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js")

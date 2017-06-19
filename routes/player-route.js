@@ -1,14 +1,23 @@
 const express = require('express')
 const router = express.Router()
 const find = require('lodash').find
+const url = require('config').url
 const {
   logPlayerIn,
   createPlayer,
   getPlayerInfo,
-  getPlayerComplete
+  getPlayerComplete,
+  getLeaderboard
 } = require('../services/player-service')
 
 router.get('/login/:googleId', (req, res, next) => logPlayerIn(req.params.googleId).then(result => result._id ? res.json(result) : res.status(404).json(result)))
+
+router.get('/leaderboard', (req, res, next) => getLeaderboard().then(players => {
+  if (req.headers[ 'content-type' ] === 'application/json') res.json(players)
+  else {
+    res.render('leaderboard', { players, url })
+  }
+}))
 
 router.post('/', (req, res, next) => createPlayer(req.body.name, req.body.googleId, req.body.email).then(result => res.json(result)))
 
